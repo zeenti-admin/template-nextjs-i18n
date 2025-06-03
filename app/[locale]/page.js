@@ -7,73 +7,60 @@ import Script from "next/script";
 // Import Container component
 import Container from "@/components/home/Container";
 
-// Pop Ups
-const PromoPopUp = dynamic(() => import("@/components/common/PopUp/PromoPopUp"), {
-  ssr: true
-})
-
 //Different namespaces
-const i18nNameSpaces = ["home", "navbar", "payout", "common", "table_section", "competitive_edge_section", "comparation_section", "bento_section"];
+const i18nNameSpaces = ["home", "navbar", "footer", "common"];
 
 const metadata_en = {
-  metadataBase: new URL('https://www.toptiertrader.com'),
-  title: "Your Skills, Big Profit - TopTier Proprietary Trading Firm",
-  description: "Join TopTier Trader, the leading proprietary trading evaluation firm. We're looking for skilled traders to fund. Start your trading journey and unlock new opportunities today!",
-  keywords: "proprietary trading, get funded, trading evaluation, experienced traders, trading journey, financial markets, trading opportunities",
+  metadataBase: new URL('https://www.zeenti.com'),
+  title: "Zeenti - Digital Excellence & Innovation - Zeenti Digital Consulting LLC.",
+  description: "Transform your business with Zeenti Digital Consulting LLC. Expert web development, mobile apps, digital strategy, and cloud solutions. Innovative consulting for modern businesses.",
+  keywords: "digital consulting, web development, mobile applications, digital strategy, cloud solutions, IT consulting, business transformation, technology consulting, digital innovation",
   language: "en",
-  subject: "Proprietary Trading Firm Services",
+  subject: "Digital Consulting Services",
   coverage: "Global",
   robots: "index, follow",
-  author: "TopTier Trader",
-  publisher: "TopTier Trader LLC",
+  author: "Zeenti Digital Consulting",
+  publisher: "Zeenti Digital Consulting LLC",
   og: {
     type: "website",
-    title: "Join TopTier Trader - Exclusive Proprietary Trading Firm",
-    description: "Seeking skilled traders for funding at TopTier Trader. Start your proprietary trading journey with us and explore unlimited financial markets opportunities.",
-    site_name: "TopTier Trader",
-    url: "https://www.toptiertrader.com/en/"
+    title: "Zeenti Digital Consulting - Transform Your Business Digitally",
+    description: "Expert digital consulting services including web development, mobile apps, and digital strategy. Transform your business with innovative technology solutions.",
+    site_name: "Zeenti Digital Consulting",
+    url: "https://www.zeenti.com/en/"
   },
   alternates: {
-    canonical: "https://www.toptiertrader.com/en",
+    canonical: "https://www.zeenti.com/en",
     languages: {
       'en': '/en',
       'es': '/es',
-      'es-co': '/es-co',
-      'es-ar': '/es-ar',
-      'es-mx': '/es-mx',
-      'es-pr': '/es-pr',
       'fr': '/fr'
     }
   }
 };
 
 const metadata_es = {
-  metadataBase: new URL('https://www.toptiertrader.com'),
-  title: "Fondate con TopTier Trader - Únete a Nuestra Firma de Prop Trading",
-  description: "Únete a TopTier Trader, la firma líder en evaluación de trading propietario. Buscamos traders cualificados para financiar. ¡Inicia tu camino en el trading y descubre nuevas oportunidades hoy!",
-  keywords: "trading propietario, prop trading, prop firm, fondeate, fondeo de forex, fondeo de cuentas, financiacion simulada, financiamiento para traders, evaluación de trading, traders experimentados, carrera en trading, mercados financieros, oportunidades de trading",
+  metadataBase: new URL('https://www.zeenti.com'),
+  title: "Zeenti - Excelencia Digital e Innovación - Zeenti Digital Consulting LLC.",
+  description: "Transforma tu negocio con Zeenti Digital Consulting LLC. Desarrollo web experto, aplicaciones móviles, estrategia digital y soluciones en la nube. Consultoría innovadora para empresas modernas.",
+  keywords: "consultoría digital, desarrollo web, aplicaciones móviles, estrategia digital, soluciones en la nube, consultoría de TI, transformación empresarial, consultoría tecnológica, innovación digital",
   language: "es",
-  subject: "Servicios de Firma de Trading Propietario",
+  subject: "Servicios de Consultoría Digital",
   coverage: "Global",
   robots: "index, follow",
-  author: "TopTier Trader",
-  publisher: "TopTier Trader LLC",
+  author: "Zeenti Digital Consulting",
+  publisher: "Zeenti Digital Consulting LLC",
   og: {
     type: "website",
-    title: "Únete a TopTier Trader - Firma Exclusiva de Trading Propietario",
-    description: "¿Eres un trader cualificado? Únete a TopTier Trader para obtener financiamiento y elevar tu carrera en trading. ¡Aplica ahora y comienza a operar con nuestro capital!",
-    site_name: "TopTier Trader",
-    url: "https://www.toptiertrader.com/es/"
+    title: "Zeenti Digital Consulting - Transforma Tu Negocio Digitalmente",
+    description: "Servicios expertos de consultoría digital incluyendo desarrollo web, aplicaciones móviles y estrategia digital. Transforma tu negocio con soluciones tecnológicas innovadoras.",
+    site_name: "Zeenti Digital Consulting",
+    url: "https://www.zeenti.com/es/"
   },
   alternates: {
-    canonical: "https://www.toptiertrader.com/es",
+    canonical: "https://www.zeenti.com/es",
     languages: {
       'en': '/en',
       'es': '/es',
-      'es-co': '/es-co',
-      'es-ar': '/es-ar',
-      'es-mx': '/es-mx',
-      'es-pr': '/es-pr',
       'fr': '/fr'
     },
     openGraph: {
@@ -83,32 +70,28 @@ const metadata_es = {
 };
 
 const metadata_fr = {
-  metadataBase: new URL('https://www.toptiertrader.com'),
-  title: "Fondate avec TopTier Trader - Rejoignez Notre Société de Prop Trading",
-  description: "Rejoignez TopTier Trader, la société leader en évaluation de trading propriétaire. Nous recherchons des traders qualifiés à financer. Commencez votre parcours de trading et découvrez de nouvelles opportunités dès aujourd'hui !",
-  keywords: "trading propriétaire, prop trading, société de prop trading, fonde, financement de forex, financement de comptes, financement simulé, financement pour traders, évaluation de trading, traders expérimentés, carrière en trading, marchés financiers, opportunités de trading",
+  metadataBase: new URL('https://www.zeenti.com'),
+  title: "Zeenti - Excellence Numérique et Innovation - Zeenti Digital Consulting LLC.",
+  description: "Transformez votre entreprise avec Zeenti Digital Consulting LLC. Développement web expert, applications mobiles, stratégie numérique et solutions cloud. Conseil innovant pour les entreprises modernes.",
+  keywords: "conseil numérique, développement web, applications mobiles, stratégie numérique, solutions cloud, conseil en TI, transformation d'entreprise, conseil technologique, innovation numérique",
   language: "fr",
-  subject: "Services de Société de Trading Propriétaire",
+  subject: "Services de Conseil Numérique",
   coverage: "Global",
   robots: "index, follow",
-  author: "TopTier Trader",
-  publisher: "TopTier Trader LLC",
+  author: "Zeenti Digital Consulting",
+  publisher: "Zeenti Digital Consulting LLC",
   og: {
     type: "website",
-    title: "Rejoignez TopTier Trader - Société Exclusive de Trading Propriétaire",
-    description: "Êtes-vous un trader qualifié ? Rejoignez TopTier Trader pour obtenir un financement et propulser votre carrière de trading. Postulez maintenant et commencez à trader avec notre capital !",
-    site_name: "TopTier Trader",
-    url: "https://www.toptiertrader.com/fr/"
+    title: "Zeenti Digital Consulting - Transformez Votre Entreprise Numériquement",
+    description: "Services experts de conseil numérique incluant le développement web, les applications mobiles et la stratégie numérique. Transformez votre entreprise avec des solutions technologiques innovantes.",
+    site_name: "Zeenti Digital Consulting",
+    url: "https://www.zeenti.com/fr/"
   },
   alternates: {
-    canonical: "https://www.toptiertrader.com/fr",
+    canonical: "https://www.zeenti.com/fr",
     languages: {
       'en': '/en',
       'es': '/es',
-      'es-co': '/es-co',
-      'es-ar': '/es-ar',
-      'es-mx': '/es-mx',
-      'es-pr': '/es-pr',
       'fr': '/fr'
     },
     openGraph: {
@@ -141,10 +124,13 @@ export default async function Home({ params: { locale } }) {
       titleTwo: t('home:title_two'),
       description: t('home:description'),
       cta: t('home:cta'),
-      join: t('home:join'),
-      reviews: t('home:reviews'),
-      mission: t('home:mission'),
-      million: t('home:million')
+      webDevelopment: t('home:webDevelopment'),
+      mobileApps: t('home:mobileApps'),
+      digitalStrategy: t('home:digitalStrategy'),
+      cloudSolutions: t('home:cloudSolutions'),
+      projectsDelivered: t('home:projectsDelivered'),
+      clientSatisfaction: t('home:clientSatisfaction'),
+      supportAvailable: t('home:supportAvailable')
     }
   };
 
@@ -153,21 +139,11 @@ export default async function Home({ params: { locale } }) {
 
   return (
     <>
-      {/* Add Trustpilot script */}
-      <Script
-        id="trustpilot-widget-script"
-        type="text/javascript"
-        src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-        strategy="afterInteractive"
-        async
-      />
-
       <TranslationsProvider
         resources={resources}
         locale={locale}
         namespaces={i18nNameSpaces}
       >
-        <PromoPopUp locale={locale} />
         <Container 
           locale={locale} 
           translations={allTranslations}
