@@ -1,0 +1,55 @@
+{
+  "name": "zeenti-template-with-i18n",
+  "version": "0.1.0",
+  "private": true,
+
+
+  "scripts": {
+    "dev": "i18nexus pull && next dev",
+    "build": "i18nexus pull && next build",
+    "start": "i18nexus pull && next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@next/third-parties": "^15.3.3",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.10",
+    "caniuse-lite": "^1.0.30001698",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.4.5",
+    "firebase": "^10.12.3",
+    "framer-motion": "^11.0.2",
+    "i18next": "^23.7.18",
+    "i18next-resources-to-backend": "^1.2.0",
+    "next": "^15.3.3",
+    "next-i18n-router": "^5.2.0",
+    "next-i18next": "^15.2.0",
+    "next-intl": "^3.4.5",
+    "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-country-flag": "^3.1.0",
+    "react-dom": "^18.2.0",
+    "react-flags-select": "^2.2.3",
+    "react-i18next": "^14.0.1",
+    "react-icons": "^5.0.1",
+    "react-intersection-observer": "^9.13.0",
+    "react-markdown": "^9.0.1",
+    "react-phone-number-input": "^3.4.5",
+    "react-scroll": "^1.9.0",
+    "react-select": "^5.8.0",
+    "react-typed": "^2.0.12",
+    "rehype-raw": "^7.0.0",
+    "sharp": "^0.33.5",
+    "swiper": "^11.0.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "^13.5.6",
+    "i18nexus-cli": "^3.3.0",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0"
+  }
+}

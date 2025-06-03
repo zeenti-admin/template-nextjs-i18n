@@ -1,0 +1,13 @@
+# Allow all
+User-agent: *
+Allow: /
+Disallow: /wp-login.php
+
+# Allow specific user-agents to access everything
+User-agent: Googlebot
+Allow: /
+Disallow: /wp-login.php
+
+User-agent: Bingbot
+Allow: /
+Disallow: /wp-login.php
