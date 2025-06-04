@@ -1,23 +1,20 @@
 "use client"
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowLeft, FiCalendar, FiClock, FiUser, FiTag } from 'react-icons/fi';
 import { useRouter } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import { getBlogBySlug } from "@/components/blog/utils/data";
-import 'highlight.js/styles/github-dark.css'; // You can choose different themes
+import { getBlogBySlug } from "@/components/blog/utils/data"
+import 'highlight.js/styles/github-dark.css';
 
-export default function BlogDetail({ params }) {
+export default function BlogDetailClient({ slug }) {
   const [blog, setBlog] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const router = useRouter();
-  
-  // Unwrap params using React.use()
-  const { slug } = use(params);
 
   useEffect(() => {
     const loadBlog = async () => {
@@ -89,12 +86,12 @@ export default function BlogDetail({ params }) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
       {/* Header */}
       <motion.header
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white border-b border-gray-100 sticky top-0 z-10"
+        className="bg-white border-b mt-2 border-gray-100 sticky top-0 z-10"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <button
@@ -206,8 +203,8 @@ export default function BlogDetail({ params }) {
               prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm
               prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:overflow-x-auto
               prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-r
-              prose-ul:list-disc prose-ul:ml-6 prose-ol:list-decimal prose-ol:ml-6
-              prose-li:text-gray-700 prose-li:mb-1
+              prose-ul:list-none prose-ul:pl-0 prose-ol:list-none prose-ol:pl-0
+              prose-li:text-gray-700 prose-li:mb-2
               prose-table:border-collapse prose-th:border prose-th:border-gray-300 prose-th:bg-gray-50 prose-th:px-4 prose-th:py-2
               prose-td:border prose-td:border-gray-300 prose-td:px-4 prose-td:py-2
               prose-img:rounded-lg prose-img:shadow-md"
