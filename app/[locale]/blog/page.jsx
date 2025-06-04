@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import Script from "next/script";
 
 // Import Container component
-import Container from "@/components/home/Container";
+import Main from "@/components/blog/Main";
 
 //Different namespaces
 const i18nNameSpaces = ["home", "navbar", "footer", "common"];
@@ -150,10 +150,8 @@ export default async function Home({ params }) {
         locale={locale}
         namespaces={i18nNameSpaces}
       >
-        <Container 
-          locale={locale} 
-          translations={allTranslations}
-          mainLang={mainLang}
+        <Main 
+ 
         />
       </TranslationsProvider>
     </>

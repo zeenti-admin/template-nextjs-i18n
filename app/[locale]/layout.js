@@ -36,7 +36,9 @@ const ClientOnlyWrapper = dynamic(
 
 const i18nNameSpaces = ["home", "navbar", "common", "footer"];
 
-export default async function Layout({ children, params: { locale } }) {
+export default async function Layout({ children, params }) {
+  // Await params before destructuring
+  const { locale } = await params;
 
   const { t, resources } = await initTranslations(locale, i18nNameSpaces);
 

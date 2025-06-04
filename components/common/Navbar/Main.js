@@ -93,34 +93,8 @@ function Navbar({ locale }) {
     selected: "text-black cursor-pointer font-semibold px-4 py-2 bg-gray-100 rounded-md transition-all duration-200"
   };
 
-  const productsDropdown = {
-    title: t("navbar:products").toString(),
-    sub: {
-      onePhase: { name: "One Phase Challenge", href: `https://www.zeenti.com/${locale}/one-phase-challenge` },
-      twoPhase: { name: "Flex and Pro Challenge", href: `https://www.zeenti.com/${locale}/two-phase-challenge` },
-      quiz: { name: "Trader Quiz", href: `https://www.zeenti.com/${locale}/trader-quiz` }
-    }
-  };
 
-  const communityDropdown = {
-    title: t("navbar:community").toString(),
-    sub: {
-      discord: { name: "Discord", href: "https://discord.com/invite/WrC2xdZZng" },
-      affiliates: { name: t("navbar:affiliates").toString(), href: `https://www.zeenti.com/${locale}/affiliates-program` },
-      academy: { name: t("navbar:academy").toString(), href: `https://www.zeenti.com/${locale}/academy` },
-      competitions: { name: t("navbar:competitions").toString(), href: "https://app.toptiertrader.com/competitions-overview" },
-      leaderboards: { name: t("navbar:leaderboards").toString(), href: "https://app.toptiertrader.com/leaderboard" },
-      keynote: { name: 'Keynote 2024', href: "https://keynote.toptiertrader.com" }
-    }
-  };
 
-  const aboutDropdown = {
-    title: t("navbar:about").toString(),
-    sub: {
-      about: { name: t("navbar:about").toString(), href: `https://www.zeenti.com/${locale}/about` },
-      blog: { name: t("navbar:blog").toString(), href: `https://www.zeenti.com/${locale}/blog` },
-    }
-  }
 
   return (
     <>
@@ -143,26 +117,18 @@ function Navbar({ locale }) {
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-1">
-              <Dropdown
-                list={productsDropdown}
-                currentNavState={currentNavState}
-                setCurrentNavState={setCurrentNavState}
-                handleCloseMenu={handleCloseMenu}
-              />
 
-              <Dropdown
-                list={communityDropdown}
-                currentNavState={currentNavState}
-                setCurrentNavState={setCurrentNavState}
-                handleCloseMenu={handleCloseMenu}
-              />
-
-              <Dropdown
-                list={aboutDropdown}
-                currentNavState={currentNavState}
-                setCurrentNavState={setCurrentNavState}
-                handleCloseMenu={handleCloseMenu}
-              />
+              <Link
+                href={`https://www.zeenti.com/${locale}/about`}
+                className={
+                  currentNavState === "about"
+                    ? linksStyle.selected
+                    : linksStyle.desktop
+                }
+                onClick={() => setCurrentNavState("about")}
+              >
+                {t("navbar:about")}
+              </Link>
 
               <Link
                 href={`https://www.zeenti.com/${locale}/contact`}
@@ -177,17 +143,17 @@ function Navbar({ locale }) {
               </Link>
 
               <Link
-                href="https://help.toptiertrader.com"
+                href={`./blog`}
                 className={
-                  currentNavState === "help_center"
+                  currentNavState === "blog"
                     ? linksStyle.selected
                     : linksStyle.desktop
                 }
-                target="_blank"
-                onClick={() => setCurrentNavState("help_center")}
+                onClick={() => setCurrentNavState("blog")}
               >
-                {t("navbar:help_center")}
+                {t("navbar:blog")}
               </Link>
+
             </div>
 
             {/* Right side buttons */}
@@ -243,37 +209,20 @@ function Navbar({ locale }) {
               </div>
 
               {/* Mobile Dropdowns */}
-              <div className="space-y-2">
-                <Dropdown
-                  list={productsDropdown}
-                  currentNavState={currentNavState}
-                  setCurrentNavState={setCurrentNavState}
-                  setmobileMenuIsOpen={setMobileMenuIsOpen}
-                  handleCloseMenu={handleCloseMenu}
-                  isNavbarShort={isNavbarShort}
-                />
 
-                <Dropdown
-                  list={communityDropdown}
-                  currentNavState={currentNavState}
-                  setCurrentNavState={setCurrentNavState}
-                  setmobileMenuIsOpen={setMobileMenuIsOpen}
-                  handleCloseMenu={handleCloseMenu}
-                  isNavbarShort={isNavbarShort}
-                />
-
-                <Dropdown
-                  list={aboutDropdown}
-                  currentNavState={currentNavState}
-                  setCurrentNavState={setCurrentNavState}
-                  setmobileMenuIsOpen={setMobileMenuIsOpen}
-                  handleCloseMenu={handleCloseMenu}
-                  isNavbarShort={isNavbarShort}
-                />
-              </div>
 
               {/* Mobile Links */}
               <div className="space-y-1 border-t border-gray-100 pt-2">
+
+                <Link
+                  href={`https://www.zeenti.com/${locale}/about`}
+                  className="flex items-center justify-between p-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                  onClick={handleCloseMenu}
+                >
+                  <span className="text-gray-700 font-medium">{t("navbar:about")}</span>
+                  <MdKeyboardArrowRight className="w-5 h-5 text-gray-400" />
+                </Link>
+
                 <Link
                   href={`https://www.zeenti.com/${locale}/contact`}
                   className="flex items-center justify-between p-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
@@ -284,14 +233,15 @@ function Navbar({ locale }) {
                 </Link>
 
                 <Link
-                  href="https://help.toptiertrader.com"
+                  href={`./blog`}
                   className="flex items-center justify-between p-3 rounded-md hover:bg-gray-50 transition-colors duration-200"
                   onClick={handleCloseMenu}
-                  target="_blank"
                 >
-                  <span className="text-gray-700 font-medium">{t("navbar:help_center")}</span>
+                  <span className="text-gray-700 font-medium">{t("navbar:blog")}</span>
                   <MdKeyboardArrowRight className="w-5 h-5 text-gray-400" />
                 </Link>
+
+
               </div>
             </div>
           </motion.div>

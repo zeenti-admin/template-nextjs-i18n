@@ -205,7 +205,7 @@ function LandingSection({ locale, translations }) {
             </motion.div>
           </motion.div>
 
-]
+
         </motion.div>
       </div>
     </main>
