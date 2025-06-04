@@ -1,6 +1,6 @@
 // data.js
 const STRAPI_API_URL = process.env.NEXT_PUBLIC_STRAPI_PUBLIC_URL
-const STRAPI_TOKEN = NEXT_PUBLIC_STRAPI_TOKEN
+const STRAPI_TOKEN = process.env.NEXT_PUBLIC_STRAPI_TOKEN
 
 // API Headers
 const headers = {
